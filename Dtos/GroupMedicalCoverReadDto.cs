@@ -23,11 +23,11 @@ namespace OnBoardingAPI.Models
         [Required]
         public bool Married { get; set; }
 
-        public DateTime DateOfMarriage { get; set; }
+        public DateTime? DateOfMarriage { get; set; }
 
         public string SpouseName { get; set; }
 
-        public DateTime SpouseDateOfBirth { get; set; }
+        public DateTime? SpouseDateOfBirth { get; set; }
 
         public string SpouseGender { get; set; }
 

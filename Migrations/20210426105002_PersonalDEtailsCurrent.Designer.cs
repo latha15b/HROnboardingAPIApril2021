@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnBoardingAPI.Data;
 
 namespace OnBoardingAPI.Migrations
 {
     [DbContext(typeof(OnBoardingContext))]
-    partial class OnBoardingContextModelSnapshot : ModelSnapshot
+    [Migration("20210426105002_PersonalDEtailsCurrent")]
+    partial class PersonalDEtailsCurrent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -359,13 +361,22 @@ namespace OnBoardingAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("CurrentAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<int>("CurrentCityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrentPincode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrentStateId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
@@ -423,10 +434,7 @@ namespace OnBoardingAPI.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("Pincode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StateId")
+                    b.Property<int?>("StateId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -609,9 +617,7 @@ namespace OnBoardingAPI.Migrations
                 {
                     b.HasOne("OnBoardingAPI.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CityId");
 
                     b.HasOne("OnBoardingAPI.Models.GroupMedicalCover", "GroupMedicalCover")
                         .WithMany("PersonalDetails")
@@ -631,9 +637,7 @@ namespace OnBoardingAPI.Migrations
 
                     b.HasOne("OnBoardingAPI.Models.State", "State")
                         .WithMany()
-                        .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StateId");
                 });
 
             modelBuilder.Entity("OnBoardingAPI.Models.PreviousEmployer", b =>

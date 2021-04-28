@@ -96,24 +96,24 @@ namespace OnBoardingAPI.Controllers
         //PUT api/groupMedicalCovers/{id}
         [HttpPut("{id}")]
         public ActionResult UpdateGroupMedicalCover(int id, 
-                                            IEnumerable<GroupMedicalCoversUpdateDto> groupMedicalCoversUpdateDto)
-        {
-            foreach(var groupMedicalCoversUpdate in groupMedicalCoversUpdateDto)
-            {
+                                            GroupMedicalCoversUpdateDto groupMedicalCoversUpdateDto)
+         {
+        //     foreach(var groupMedicalCoversUpdate in groupMedicalCoversUpdateDto)
+        //     {
                 GroupMedicalCover groupMedicalCoverModelFromRepo = 
-                        _repository.GetGroupMedicalCoversByGroupMedicalId(groupMedicalCoversUpdate.GroupMedicalId);
+                        _repository.GetGroupMedicalCoversByGroupMedicalId(groupMedicalCoversUpdateDto.GroupMedicalId);
 
                 if(groupMedicalCoverModelFromRepo == null)
                 {
                     return NotFound();
                 }
 
-                _mapper.Map(groupMedicalCoversUpdate, groupMedicalCoverModelFromRepo);
+                _mapper.Map(groupMedicalCoversUpdateDto, groupMedicalCoverModelFromRepo);
 
                 _repository.UpdateGroupMedicalCovers(groupMedicalCoverModelFromRepo);
 
                 _repository.SaveChanges();
-            }
+            //}
             return NoContent();
         }
 

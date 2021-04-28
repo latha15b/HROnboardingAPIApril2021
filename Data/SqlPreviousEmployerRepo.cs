@@ -48,7 +48,8 @@ namespace OnBoardingAPI.Data
         public IEnumerable<PreviousEmployer> GetPreviousEmployersByEmployeeId(int employeeId)
         {
             return _context.PreviousEmployers.Where(preEmp => 
-            preEmp.PersonalDetailEmployeeId == employeeId).ToList();
+            preEmp.PersonalDetailEmployeeId == employeeId).
+            OrderByDescending(preEmp => preEmp.PreviousEmployerId).ToList();
         }
 
         public PreviousEmployer GetPreviousEmployersByPreviousEmployerId(int previousEmployerId)

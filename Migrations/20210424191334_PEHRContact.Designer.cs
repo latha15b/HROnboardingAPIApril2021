@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnBoardingAPI.Data;
 
 namespace OnBoardingAPI.Migrations
 {
     [DbContext(typeof(OnBoardingContext))]
-    partial class OnBoardingContextModelSnapshot : ModelSnapshot
+    [Migration("20210424191334_PEHRContact")]
+    partial class PEHRContact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,7 +140,7 @@ namespace OnBoardingAPI.Migrations
                     b.Property<DateTime>("DateOfJoining")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateOfMarriage")
+                    b.Property<DateTime>("DateOfMarriage")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("DoYouHaveKids")
@@ -159,7 +161,7 @@ namespace OnBoardingAPI.Migrations
                     b.Property<string>("ParentOrInLawsName2Relationship")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("SpouseDateOfBirth")
+                    b.Property<DateTime>("SpouseDateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SpouseGender")

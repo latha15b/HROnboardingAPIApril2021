@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnBoardingAPI.Data;
 
 namespace OnBoardingAPI.Migrations
 {
     [DbContext(typeof(OnBoardingContext))]
-    partial class OnBoardingContextModelSnapshot : ModelSnapshot
+    [Migration("20210426105243_PersonalDEtails")]
+    partial class PersonalDEtails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

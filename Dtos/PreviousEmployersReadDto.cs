@@ -34,7 +34,7 @@ namespace OnBoardingAPI.Models
         public bool IsLatestLastEmployer { get; set; }
         public string HrName { get; set; }
         
-        public int HrContactNumber { get; set; }
+        public string HrContactNumber { get; set; }
 
         public string HrEmailID { get; set; }
 
