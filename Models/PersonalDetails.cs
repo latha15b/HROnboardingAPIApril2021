@@ -101,5 +101,11 @@ namespace OnBoardingAPI.Models
 
         [Required]
         public int PermanentAddressStateId { get; set; }
+        
+        [Required]
+        public int CurrentCityId { get; set; }
+
+        [Required]
+        public int CurrentStateId { get; set; }
     }
 }

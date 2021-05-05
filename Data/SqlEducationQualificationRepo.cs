@@ -47,7 +47,8 @@ namespace OnBoardingAPI.Data
         public IEnumerable<EducationQualification> GetEducationQualificationsByEmployeeId(int employeeId)
         {
             return _context.EducationQualifications.Where(emp => 
-            emp.PersonalDetailEmployeeId == employeeId).ToList();
+            emp.PersonalDetailEmployeeId == employeeId).
+            OrderByDescending(emp => emp.EducationQualificationId).ToList();
         }
 
         public EducationQualification GetEducationQualificationsByEducationId(int educationId)

@@ -38,6 +38,11 @@ namespace OnBoardingAPI.Data
             return _context.State.ToList().OrderBy(state => state.StateName);
         }
 
+        public IEnumerable<City> GetAllCityDetailsByStateId(int stateId)
+        {
+            return _context.City.Where(city => city.StateId == stateId).ToList().
+            OrderBy(order => order.CityName);
+        }      
         public IEnumerable<PersonalDetails> GetAllPersonalDetails()
         {
             return _context.PersonalDetails.ToList();

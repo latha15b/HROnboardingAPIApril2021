@@ -37,6 +37,8 @@ namespace OnBoardingAPI.Dtos
         public int PermanentAddressCityId { get; set; }
         public int PermanentAddressPincode { get; set; }
         public int PermanentAddressStateId { get; set; }
+        public int CurrentCityId { get; set; }
+        public int CurrentStateId { get; set; }
         public List<EducationQualification> EducationQualifications { get; set;}
 
         public List<EducationCertification> EducationCertifications { get; set;}

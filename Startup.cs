@@ -50,6 +50,8 @@ namespace OnBoardingAPI
             services.AddScoped<IOtherDetails, SqlOtherDetailsRepo>();
             services.AddScoped<IOtherProfessionalDetails, SqlOtherProfessionalDetailsRepo>();
             services.AddScoped<IUploadDocuments, SqlUploadDocumentsRepo>();
+            services.AddScoped<ISummary, SqlSummaryRepo>();
+
 
         }
 
